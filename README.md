@@ -1,8 +1,8 @@
 # Disentangled Robot Learning via Separate Forward and Inverse Dynamics Pretraining
 ### [[Paper]](https://openreview.net/pdf?id=DdrsHWobR1) [[HuggingFace]](https://huggingface.co/zbzzbz/DeFI) 
 
-> **Disentangled Robot Learning via Separate Forward and Inverse Dynamics Pretraining**
-> [Wenyao Zhang*](https://zhangwenyao1.github.io/), [Bozhou Zhang*](https://zbozhou.github.io/), [Zekun Qi](https://qizekun.github.io/), [Wenjun Zeng](https://scholar.google.com/citations?user=_cUfvYQAAAAJ&hl=zh-CN), [Xin Jin](https://scholar.google.com/citations?user=byaSC-kAAAAJ&hl=zh-CN), [Li Zhang](https://lzrobots.github.io)   
+> **Disentangled Robot Learning via Separate Forward and Inverse Dynamics Pretraining**            
+> [Wenyao Zhang*](https://zhangwenyao1.github.io/), [Bozhou Zhang*](https://zbozhou.github.io/), [Zekun Qi](https://qizekun.github.io/), [Wenjun Zeng](https://scholar.google.com/citations?user=_cUfvYQAAAAJ&hl=zh-CN), [Xin Jin](https://scholar.google.com/citations?user=byaSC-kAAAAJ&hl=zh-CN), [Li Zhang](https://lzrobots.github.io)  
 > **ICLR 2026**
 
 ## Abstract
