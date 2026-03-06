@@ -1,0 +1,88 @@
+# Training data parameters.
+train_args:
+  ########### debug ################
+  debug: False
+  ######### wandb args ##################
+  project_name: "svd_clean_code"
+  run_name: "clean_code"
+  ######### text args ###################
+  clip_model_path: "/Path_To/clip-vit-base-patch32"
+  clip_token_length: 20
+  position_encode: False 
+  clip_img_size: 224
+  use_img_cond: False
+  ############ dataset args###############
+  annotation_name: 'annotation'  # annotation dirname under dataset_dir path
+  dataset_dir: "/Path_To/opensource_robotdata"
+  dataset: 'sthv2+bridge+rt1+calvin'
+  prob: [0.4,0.2,0.2,0.2]
+  sequence_length: 16
+  ############ sample args###############
+  validation_num: 32
+  video_num: 3
+  num_frames: 16
+  width: 256
+  height: 256
+  # Whether or not to sample preview during training (Requires more VRAM).
+  sample_preview: True
+  # Number of inference steps when generating the video.
+  num_inference_steps: 30
+  # CFG scale
+  guidance_scale: 7.5
+  # fps
+  fps: 7
+  # The motion bucket ID. Used as conditioning for the generation. The higher the number the more motion will be in the video.
+  motion_bucket_id: 127
+  # The number of frames to decode at a time. The higher the chunk size, the higher the temporal consistency between frames,
+  # but also the higher the memory consumption. By default, the decoder will decode all frames at once for maximal quality.
+  # Reduce `decode_chunk_size` to reduce memory usage.
+  decode_chunk_size: 7
+
+# Pretrained diffusers model path.
+pretrained_model_path: "/Path_To/stable-video-diffusion-img2vid"
+
+# The folder where your training outputs will be placed.
+output_dir: "../outputs/svd_train"
+
+# Learning rate for AdamW.
+learning_rate: 5e-6
+
+# Weight decay. Higher = more regularization. Lower = closer to dataset.
+adam_weight_decay: 0
+
+# Optimizer parameters for the UNET. Overrides base learning rate parameters.
+extra_unet_params: null
+
+# How many batches to train. Not to be confused with video frames.
+train_batch_size: 6
+
+# Maximum number of train steps. Model is saved after training.
+max_train_steps: 500000
+
+# Saves a model every nth step.
+checkpointing_steps: 50000
+
+# How many steps to do for validation if sample_preview is enabled.
+validation_steps: 50000
+
+# Which modules we want to unfreeze for the UNET. Advanced usage.
+trainable_modules:
+  - "all"
+  
+  # If you want to ignore temporal attention entirely, remove "attn1-2" and replace with ".attentions"
+  # This is for self attetion. Activates for spatial and temporal dimensions if n_sample_frames > 1
+  - "attn1"
+  # This is for cross attention (image & text data). Activates for spatial and temporal dimensions if n_sample_frames > 1
+  - "attn2"
+  - "conv_in"
+  #  Convolution networks that hold temporal information. Activates for spatial and temporal dimensions if n_sample_frames > 1
+  - "temp_conv"
+
+# Seed for validation.
+seed: 6
+
+# Whether or not we want to use mixed precision with accelerate.
+mixed_precision: "fp16"
+
+# Use scaled dot product attention (Only available with >= Torch 2.0).
+enable_torch_2_attn: True

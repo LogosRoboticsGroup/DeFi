@@ -1,0 +1,1 @@
+from genie.modules.lam import UncontrolledDINOLatentActionModel, ControllableDINOLatentActionModel

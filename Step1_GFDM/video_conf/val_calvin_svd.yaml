@@ -1,0 +1,38 @@
+# Validation data parameters.
+validation_args:
+  position_encode: False
+  
+  # Height and width of validation sample.
+  width: 256
+  height: 256
+  
+  clip_token_length: 20
+  clip_img_size: 224
+  use_img_cond: False
+  
+  ############ sample args #################
+  val_dataset_dir: '/Path_To/opensource_robotdata/bridge'
+  val_idx: [2,8,10,14]
+
+  camera_idx: 0
+  
+  use_new_instru: False # if use new instruction, len(val_instru) should be equal to len(val_idx)
+  new_instru: "Stack the red block above the blue block."
+  
+  only_one_clip: False
+  start_idx: 5 #30
+  num_frames: 16
+  skip_step : 2
+  output_path: "../outputs/svd_eval"
+  
+  ########### diffusion args ################
+  # Number of inference steps when generating the video.
+  num_inference_steps: 30 
+
+  fps: 4
+  # The motion bucket ID. Used as conditioning for the generation. The higher the number the more motion will be in the video.
+  motion_bucket_id: 127
+  # The number of frames to decode at a time. The higher the chunk size, the higher the temporal consistency between frames,
+  # but also the higher the memory consumption. By default, the decoder will decode all frames at once for maximal quality.
+  # Reduce `decode_chunk_size` to reduce memory usage.
+  decode_chunk_size: 7

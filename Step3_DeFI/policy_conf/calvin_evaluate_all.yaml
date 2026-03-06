@@ -1,0 +1,27 @@
+defaults:
+  - VPP_Calvinabc_train
+  - /callbacks/rollout/tasks@tasks: new_playtable_tasks
+  - annotations: new_playtable_validation
+  - _self_
+
+# model完全从train的配置文件里覆盖
+
+eval_cfg_overwrite:
+  datamodule:
+    datasets:
+      lang_dataset:
+        lang_folder: lang_annotations
+
+# 评测参数
+ep_len: 720  # 360 for official, 720 following X-VLA
+num_sequences: 1000
+log_wandb: True
+
+# 模型采样参数
+sampler_type: ddim
+multistep: 10  # default 10, 这个是一次forward后执行其结果的步骤
+num_sampling_steps: 10
+cfg_value: 1
+sigma_min: 1.0
+sigma_max: 80
+noise_scheduler: exponential 
