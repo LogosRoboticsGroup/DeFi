@@ -141,13 +141,11 @@ scripts/rollout_calvin.sh
 
 ## BibTeX
 ```bibtex
-@inproceedings{
-zhang2026disentangled,
-title={Disentangled Robot Learning via Separate Forward and Inverse Dynamics Pretraining},
-author={Wenyao Zhang and Bozhou Zhang and Zekun Qi and Wenjun Zeng and Xin Jin and Li Zhang},
-booktitle={The Fourteenth International Conference on Learning Representations},
-year={2026},
-url={https://openreview.net/forum?id=DdrsHWobR1}
+@article{zhang2026disentangled,
+  title={Disentangled Robot Learning via Separate Forward and Inverse Dynamics Pretraining},
+  author={Zhang, Wenyao and Zhang, Bozhou and Qi, Zekun and Zeng, Wenjun and Jin, Xin and Zhang, Li},
+  journal={arXiv preprint arXiv:2604.16391},
+  year={2026}
 }
 ```
 
